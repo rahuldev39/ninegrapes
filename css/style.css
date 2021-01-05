@@ -8,6 +8,10 @@
    src: url('../fonts/Campton-Bold.otf') format('opentype');
    font-weight: bold;
 }
+*{
+    outline: none;
+    outline-color: transparent;
+}
 body {
     background-color: #19171a;
     cursor: url(../images/cursor.svg) 4 4,auto !important;
@@ -34,10 +38,18 @@ body {
     pointer-events: none;
     height: 40px;
     width: 40px;
-    z-index: 100;
+    z-index: 10000;
     transform: translate(-50%, -50%);
+    transition-duration: .3s;
+    transition-property: width, height;
+    transition-timing-function: ease-out;
+    transform-origin: 100% 100%;
+    
 }
-
+.follower.link-grow{
+    height: 80px;
+    width: 80px;
+}
 .navbar {
     z-index: 100;
 }
@@ -63,6 +75,17 @@ body {
 }
 .hero-section .header-content{
     padding-top: 100px;
+    z-index: 10;
+}
+.hero-section::before {
+    content: "";
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    background-color: #000000b8;
+    position: absolute;
+    z-index: 1;
 }
 .Hero-title{
     font-size: 5.5rem;
@@ -74,3 +97,17 @@ body {
 .time-text{
     font-size: 6rem;
 }
+
+
+.cursor {
+    position: absolute;
+    z-index: 10;
+    width: 40px;
+    height: 40px;
+    border: 2px solid #23bfa0;
+    border-radius: 50%;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+  }
+  
