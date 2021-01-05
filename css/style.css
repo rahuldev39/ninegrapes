@@ -1,0 +1,76 @@
+@font-face {
+    font-family: 'Campton';
+    src: url('../fonts/Campton-Light.otf') format('opentype');
+    font-weight: 400;
+ }
+ @font-face {
+   font-family: 'Campton';
+   src: url('../fonts/Campton-Bold.otf') format('opentype');
+   font-weight: bold;
+}
+body {
+    background-color: #19171a;
+    cursor: url(../images/cursor.svg) 4 4,auto !important;
+    overflow-x: hidden;
+}
+.text-grapes{
+    color: #a56fae;
+}
+.bg-grapes{
+    background-color: #a56fae;
+}
+.mh-100vh{
+    min-height: 100vh;
+}
+.object-fit-cover{
+    object-fit: cover;
+}
+
+.follower {
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid #fff;
+    position: absolute;
+    pointer-events: none;
+    height: 40px;
+    width: 40px;
+    z-index: 100;
+    transform: translate(-50%, -50%);
+}
+
+.navbar {
+    z-index: 100;
+}
+.overlay-menu{
+    display: none;
+}
+.header__menu {
+    padding: 12px 7px;
+    border-radius: 50%;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-transition: -webkit-transform .2s cubic-bezier(.41,.15,.41,1.31);
+    transition: -webkit-transform .2s cubic-bezier(.41,.15,.41,1.31);
+    transition: transform .2s cubic-bezier(.41,.15,.41,1.31);
+    transition: transform .2s cubic-bezier(.41,.15,.41,1.31),-webkit-transform .2s cubic-bezier(.41,.15,.41,1.31);
+    line-height: unset;
+    height: initial;
+    height: 40px;
+    width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.hero-section .header-content{
+    padding-top: 100px;
+}
+.Hero-title{
+    font-size: 5.5rem;
+    line-height: 1;
+}
+.hero-eyebrow{
+    font-size: 2.8rem;
+}
+.time-text{
+    font-size: 6rem;
+}
