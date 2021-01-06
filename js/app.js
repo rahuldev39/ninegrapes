@@ -82,7 +82,7 @@ const onPointerOver = (e) => {
 	target.x = rect.left + (rect.width >> 1);
 	target.y = rect.top + (rect.height >> 1);
 
-	target.width = Math.max(rect.width, rect.height) + 40;
+	target.width = Math.max(rect.width, rect.height) + 30;
 };
 
 const onPointerOut = () => {
@@ -151,7 +151,7 @@ loop();
     if(s<=9) s="0"+s;
     if(m<=9) m="0"+m;
     if(h<=9) h="0"+h;
-    time+=h+":"+m+":"+s;
+    time+=h+":"+m;
     document.getElementById('clock').innerHTML=time;
     tick=setTimeout("clock()",1000); 
     }

@@ -33,7 +33,7 @@ body {
     outline: 0;
     box-shadow: none;
 }
-.btn-link:hover{
+.btn-link:hover, .btn-link:focus{
     text-decoration: none;
 }
 .follower {
@@ -94,7 +94,7 @@ body {
     top: 0;
     bottom: 0;
     right: 0;
-    background-color: #000000d4;
+    background-color: #00000096;
     position: absolute;
     z-index: 1;
 }
@@ -141,7 +141,7 @@ body {
 }
 
 .overlay {
-    background: #3d303d;
+    background: #000000;
     position: absolute;
     opacity: 0;
     height: 100vh;
@@ -198,7 +198,7 @@ body {
     content: "";
     height: 300%;
     left: -50%;
-    opacity: 0.48;
+    opacity: 0.33;
     position: fixed;
     top: -110%;
     width: 300%;
