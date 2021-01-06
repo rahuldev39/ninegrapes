@@ -1,6 +1,6 @@
 // cursor
 
-let follower = document.querySelector('.follower');
+let follower = document.querySelector('.cursor');
 
 let hoverLinks = document.querySelectorAll('.hover');
 
@@ -11,7 +11,7 @@ const maxLength = Math.max(windowW, windowH);
 
 const cursorWidth = 40;
 const cursorR = cursorWidth >> 1;
-const cursorDelay = 8;
+const cursorDelay = 3;
 
 const buttons = Array.from(document.querySelectorAll('.hover'));
 
@@ -103,6 +103,8 @@ buttons.forEach((btn) => {
 
 loop();
 
+
+
      hoverLinks.forEach( links => {
           links.addEventListener('mouseover', ()=>{
                follower.classList.add('link-grow');
@@ -110,4 +112,46 @@ loop();
           links.addEventListener('mouseleave', ()=>{
                follower.classList.remove('link-grow');
           })
-     });
+	 });
+
+
+
+	
+	 
+	
+
+  var t1 = new TimelineMax({paused: true});
+
+  t1.to(".overlay", 1, {
+		opacity: 1,
+		ease: Expo.easeInOut
+  });
+
+  t1.staggerFrom(".menu ul li", 0.8, {y: 60, opacity: 0, ease: Expo.easeOut}, 0.1);
+
+  t1.reverse();
+  $(document).on("click", ".menu-btn", function() {
+		t1.reversed(!t1.reversed());
+		$('.menu').toggleClass('show');
+  });
+
+
+
+  var tick;
+    function stop() {
+    clearTimeout(tick);
+    }
+    function clock() {
+    var ut=new Date();
+    var h,m,s;
+    var time="        ";
+    h=ut.getHours();
+    m=ut.getMinutes();
+    s=ut.getSeconds();
+    if(s<=9) s="0"+s;
+    if(m<=9) m="0"+m;
+    if(h<=9) h="0"+h;
+    time+=h+":"+m+":"+s;
+    document.getElementById('clock').innerHTML=time;
+    tick=setTimeout("clock()",1000); 
+    }

@@ -16,7 +16,7 @@
 
 </head>
 
-<body >
+<body onload="clock();" onunload="stop();">
   <div class="cursor js-cursor"  id="ball"></div>
   <!-- Navigation -->
   <nav class="navbar  navbar-dark bg-transparent position-absolute w-100 pt-4">
@@ -24,27 +24,32 @@
       <a class="navbar-brand hover" href="#">
         <img src="./images/NG_logo.svg" width="60" alt="">
       </a>
-      <button class="navbar-toggler header__menu bg-grapes mx-auto hover" type="button" >
+      <button class="navbar-toggler menu-btn header__menu bg-grapes mx-auto hover" type="button" >
         <img src="./images/menu.svg" width="26" alt="">
       </button>
-      <div class="overlay-menu">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="#">Home
-              <span class="sr-only">(current)</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Services</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Contact</a>
-          </li>
-        </ul>
+      <div class="menu">
+        <div class="overlay w-100 d-flex align-items-center justify-content-center">
+          <h1>MENU</h1>
+
+          <div class="nav">
+                <ul>
+                      <li><div class="logo"></div></li>
+                      <li class="shuffle" >
+                       <a href=""> Home</a>
+                      </li>
+                      <li class="shuffle" >
+                        <a href=""> About</a>
+                       </li>
+                       <li class="shuffle" >
+                        <a href=""> Our Story</a>
+                       </li>
+                       <li class="shuffle" >
+                        <a href=""> Contact</a>
+                       </li>
+                </ul>
+          </div>
       </div>
+    </div>
     </div>
   </nav>
 
@@ -57,15 +62,15 @@
         <div class="container ">
           <h3 class="Campton font-weight-bold text-white hero-eyebrow mb-0">Welcome to </h3>
           <h1 class="text-grapes Campton font-weight-bold Hero-title">NINEGRAPES</h1>
-          <h1 class="text-white Campton font-weight-bold time-text">17:22</h1>
+          <h1 class="text-white Campton font-weight-bold time-text"><span id="clock"></span></h1>
         </div>
       </div>
       <div class="container mb-5 header-bottom">
         <div class="d-flex justify-content-between">
           <button class="play-btn btn btn-link text-white d-flex align-items-center hover">
-           <img src="./images/play.svg" class="mr-2" alt=""> Play
+            Pause
           </button>
-          <button class="play-btn btn btn-link text-white d-flex align-items-center hover">
+          <button class="grid-btn btn btn-link text-white d-flex align-items-center hover">
             <img src="./images/grid.svg" class="mr-2" alt=""> All Work
           </button>
           <div class="social-media d-flex align-items-center">
@@ -93,7 +98,24 @@
   <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.slim.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <!--Greensock-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
   <script src="js/app.js"></script>
+
+ <script>
+   $('.play-btn').click(function () {
+   var mediaVideo = $("#video-banner").get(0);
+   if (mediaVideo.paused) {
+       mediaVideo.play();
+       $(this).removeClass('paused');
+       $(this).text('Pause')
+   } else {
+       mediaVideo.pause();
+       $(this).addClass('paused');
+       $(this).text('Play')
+  }
+});
+ </script>
 </body>
 
 </html>

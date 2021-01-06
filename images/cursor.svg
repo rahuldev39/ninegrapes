@@ -1,1 +1,6 @@
-<svg width="10" height="10" xmlns="http://www.w3.org/2000/svg"><path fill="none" d="M-1-1h12v12H-1z"/><g><ellipse ry="2.438" rx="2.491" cy="5" cx="5" fill="red"/></g></svg>
+<svg width="10" height="10" xmlns="http://www.w3.org/2000/svg">
+<path fill="none" d="M-1-1h12v12H-1z"/>
+    <g>
+        <ellipse ry="2.438" rx="2.491" cy="5" cx="5" fill="#a56fae"/>
+    </g>
+</svg>
