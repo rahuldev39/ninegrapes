@@ -314,3 +314,57 @@ footer a:hover{
 .images-tiles .tile{
     position: relative;
 }
+
+.bg-img{
+    left: 0;
+    top: 0;
+}
+
+.text-header::before{
+    content: "";
+    width: 50%;
+    height: 2px;
+    display: inline-block;
+    background-color: white;
+    margin-bottom: 15px;
+}
+
+    
+.services-item::before{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: #a56faed9;
+    content: "";
+    left: 0;
+    top: 100%;
+    clip-path: circle(0%);
+    transition: all .4s ease-out;
+}
+.services-item:hover::before{
+    top: 0px;
+    clip-path: circle(100%);
+}
+.services-item-content h4{
+    display: inline-block;
+}
+.services-item-content h4::before{
+    content: "";
+    width: 70%;
+    height: 1px;
+    background-color: white;
+    display: block;
+    margin-bottom: 5px;
+}
+.services-item{
+    max-width: 400px;
+    margin: 0 auto;
+}
+@media(max-width:768px){
+    .bg-text{
+        display: none;
+    }
+    .bg-text-padding {
+        padding-top: 80px;
+    }
+}
