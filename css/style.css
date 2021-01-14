@@ -368,3 +368,39 @@ footer a:hover{
         padding-top: 80px;
     }
 }
+.creative-item {
+    color: white;
+    text-align: center;
+    display: block;
+    padding: 10px;
+    border: 1px solid #ffffff0d;
+    border-radius: 5px;
+}
+.creative-item:hover{
+    color:  white;
+    text-decoration: none;
+}
+.creative-item h4 {
+    margin-bottom: 0px;
+    margin-top: 12px;
+}
+
+.creative-item div::before{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: #a56faed9;
+    content: "";
+    left: 0;
+    top: 100%;
+    clip-path: circle(0%);
+    transition: all .4s ease-out;
+    background-image: url(../images/plus.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 50px;
+}
+.creative-item div:hover::before{
+    top: 0px;
+    clip-path: circle(100%);
+}
