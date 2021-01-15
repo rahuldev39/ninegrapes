@@ -1,8 +1,12 @@
 window.addEventListener('DOMContentLoaded', (event) => {
-    var scroll = new LocomotiveScroll({
-		el: document.querySelector('[data-scroll-container]'),
-		smooth: true
-	  });
+	setTimeout(function(){ 
+		
+		var scroll = new LocomotiveScroll({
+			el: document.querySelector('[data-scroll-container]'),
+			smooth: true
+		  });
+	 }, 3000);
+    
 });
 
 
