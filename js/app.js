@@ -1,9 +1,11 @@
-(function () {
+window.addEventListener('DOMContentLoaded', (event) => {
     var scroll = new LocomotiveScroll({
-      el: document.querySelector('[data-scroll-container]'),
-      smooth: true
-    });
-})();
+		el: document.querySelector('[data-scroll-container]'),
+		smooth: true
+	  });
+});
+
+
 
 
 // cursor
