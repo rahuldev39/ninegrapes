@@ -8,10 +8,6 @@ window.addEventListener('DOMContentLoaded', (event) => {
 	 }, 3000);
     
 });
-
-
-
-
 // cursor
 
 let follower = document.querySelector('.cursor');

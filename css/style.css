@@ -109,6 +109,26 @@ body {
 .hero-eyebrow{
     font-size: 2.8rem;
 }
+
+.Hero-title-lg{
+    font-size: 9rem;
+    line-height: 1;
+}
+@media(max-width:992px){
+    .Hero-title-lg {
+        font-size: 7rem;
+        line-height: 1;
+        margin-bottom: 30px;
+    }
+    .header-content .text-lg-right{
+        order: -1;
+    }
+}
+@media(max-width:576px){
+    .Hero-title-lg {
+        font-size: 5rem;
+    }
+}
 .time-text{
     font-size: 6rem;
 }
