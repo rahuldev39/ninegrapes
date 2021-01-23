@@ -9,10 +9,10 @@ const tiles = gsap.utils.toArray('.member-tiles .tile');
 
 tiles.forEach(tile => {
 
-  gsap.from(tile,{duration:.01, y:"random(-70, 70)", stagger: 0.1,
+  gsap.from(tile,{duration:.03, y:"random(-70, 70)", rotationY:'+=90', stagger: 0.1,
   scrollTrigger:{
 	trigger: tile,
-	start: "top center-=150px", 
+	start: "top center+=100px", 
 }})
 
 })
