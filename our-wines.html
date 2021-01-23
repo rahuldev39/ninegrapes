@@ -21,6 +21,11 @@
 
 <body onload="clock();" onunload="stop();">
   <div class="cursor js-cursor"  id="ball"></div>
+  <div class="transitionBars">
+    <div class="bar--left"></div> 
+    <div class="bar--right"></div>
+  </div>
+
   <div class="menu">
     <div class="overlay w-100 d-flex align-items-center justify-content-center">
       <h1>MENU</h1>
@@ -67,12 +72,13 @@
         <div class="d-flex py-5 flex-fill align-items-center">
           <div class="container " data-scroll data-scroll-speed="-1">
             <div class="row">
-              <div class="col-lg-5 align-self-end">
-                <h3 class="Campton  text-white hero-eyebrow" >(Our Wines)</h3>
-              </div>
-              <div class="col-lg-7 text-lg-right">
+              <div class="col-lg-7 ">
                 <h1 class="text-grapes Campton font-weight-bold  Hero-title-lg">Creative <br> Corner</h1>
               </div>
+              <div class="col-lg-5 align-self-end text-lg-right">
+                <h3 class="Campton  text-white hero-eyebrow" >(Our Wines)</h3>
+              </div>
+             
             </div>
            
             
@@ -266,7 +272,7 @@
   <!--Greensock-->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
   <script src="vendor/locomotive/locomotive.js"></script>
-  <script src="vendor/fancybox/jquery.fancybox.min.js"></script>
+  <script  src="vendor/fancybox/jquery.fancybox.min.js"></script>
   <script src="js/app.js"></script>
 
 

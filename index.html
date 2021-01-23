@@ -20,7 +20,12 @@
 
 <body onload="clock();" onunload="stop();">
   <div class="cursor js-cursor"  id="ball"></div>
-  <div class="menu">
+  <div class="transitionBars">
+    <div class="bar--left"></div> 
+    <div class="bar--right"></div>
+  </div>
+  
+    <div class="menu">
     <div class="overlay w-100 d-flex align-items-center justify-content-center">
       <h1>MENU</h1>
 
@@ -176,7 +181,7 @@
 
 
         <section class="section clients-section  bg-text-padding position-relative" data-scroll-section>
-          <h1 class="Campton bg-text bg-text-center  position-absolute font-weight-bold " data-scroll data-scroll-speed="-1">Our Clientele</h1>
+          <h1 class="Campton bg-text bg-text-center  position-absolute font-weight-bold " data-scroll data-scroll-speed="1">Our Story</h1>
           <div class="container">
             <div class="section-header mb-5 text-center">
               <h3 class="Campton font-weight-bold">BRANDS WE’VE WORKED WITH</h3>
@@ -301,6 +306,8 @@
 
   
 
+  
+
   <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.slim.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -308,6 +315,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
   <script src="vendor/locomotive/locomotive.js"></script>
   <script src="js/app.js"></script>
+  
 
  <script>
    $('.play-btn').click(function () {
@@ -323,6 +331,7 @@
   }
 });
  </script>
+
 </body>
 
 </html>

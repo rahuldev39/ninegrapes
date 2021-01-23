@@ -48,17 +48,18 @@ html.has-scroll-smooth {
       [data-scroll-direction="horizontal"] .c-scrollbar:hover {
         transform: scaleY(1.3); }
   
-  .c-scrollbar_thumb {
-    position: absolute;
-    top: 0;
-    right: 0;
-    background-color: black;
-    opacity: 0.5;
-    width: 7px;
-    border-radius: 10px;
-    margin: 2px;
-    cursor: -webkit-grab;
-    cursor: grab; }
+        .c-scrollbar_thumb {
+          position: absolute;
+          top: 0;
+          right: 0;
+          background-color: #a56fae;
+          opacity: 0.5;
+          width: 7px;
+          border-radius: 10px;
+          margin: 2px;
+          cursor: -webkit-grab;
+          cursor: grab;
+      }
     .has-scroll-dragging .c-scrollbar_thumb {
       cursor: -webkit-grabbing;
       cursor: grabbing; }

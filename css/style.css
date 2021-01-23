@@ -17,6 +17,13 @@ body {
     cursor: url(../images/cursor.svg) 4 4,auto !important;
     overflow-x: hidden;
     color: white;
+    
+}
+@media(min-width:992px){
+    body{
+        overflow: hidden;
+    }
+    
 }
 .text-grapes{
     color: #a56fae;
@@ -135,18 +142,20 @@ body {
 .header-bottom .btn{
     font-weight: 600;
 }
+@media(min-width:992px){
+    .cursor {
+        position: absolute;
+        z-index: 10;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        pointer-events: none;
+        transform: translate(-50%, -50%);
+        z-index: 1000;
+        box-shadow: 0px 0px 0px 1px #23bfa0;
+      }  
+}
 
-.cursor {
-    position: absolute;
-    z-index: 10;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    pointer-events: none;
-    transform: translate(-50%, -50%);
-    z-index: 1000;
-    box-shadow: 0px 0px 0px 1px #23bfa0;
-  }
   .cursor.link-grow{
     box-shadow: 0px 0px 0px .5px #23bfa0;
 }
@@ -172,7 +181,7 @@ body {
     left: 0;
     top: 0;
     pointer-events: none;
-    z-index: 1;
+    z-index: 100;
 }
 .show .overlay{
     pointer-events: initial;
@@ -385,7 +394,27 @@ footer a:hover{
         display: none;
     }
     .bg-text-padding {
-        padding-top: 80px;
+        padding-top: 100px;
+    }
+    .footer-col{
+        margin-bottom: 30px;
+    }
+    .overlay li {
+        font-size: 35px;
+    }
+    .hero-eyebrow {
+        font-size: 2rem;
+    }
+    .Hero-title {
+        font-size: 4.5rem;
+    }
+}
+@media(max-width:576px){
+    .Hero-title {
+        font-size: 3.5rem;
+    }
+    .time-text {
+        font-size: 4rem;
     }
 }
 .creative-item {
@@ -423,4 +452,99 @@ footer a:hover{
 .creative-item div:hover::before{
     top: 0px;
     clip-path: circle(100%);
+}
+
+.transition-fade {
+    transition: 0.4s;
+    opacity: 1;
+  }
+  
+  html.is-animating .transition-fade {
+    opacity: 0;
+  }
+
+  .transitionBars {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    pointer-events: none;
+}
+.transitionBars .bar--right {
+    right: 0;
+}
+.transitionBars .bar--left {
+    left: 0;
+}
+ 
+.transitionBars .bar--left, 
+.transitionBars .bar--right {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    opacity: 1;
+}
+
+
+.transitionBars.open .bar--left {
+    -webkit-transform: translateY(100%);
+    transform: translateY(100%);
+}
+
+.transitionBars.open .bar--right {
+    -webkit-transform: translateY(-100%);
+    transform: translateY(-100%);
+}
+.transitionBars.bar, 
+.transitionBars.open .bar--left, 
+.transitionBars.open .bar--right {
+    opacity: 0;
+    -webkit-transition: opacity .1s linear 1.4s,-webkit-transform 1s cubic-bezier(.645,.045,.355,1);
+    transition: opacity .1s linear 1.4s,-webkit-transform 1s cubic-bezier(.645,.045,.355,1);
+    transition: transform 1s cubic-bezier(.645,.045,.355,1),opacity .1s linear 1.4s;
+    transition: transform 1s cubic-bezier(.645,.045,.355,1),opacity .1s linear 1.4s,-webkit-transform 1s cubic-bezier(.645,.045,.355,1);
+}
+.transitionBars .bar, 
+.transitionBars .bar--left, 
+.transitionBars .bar--right {
+    height: 100%;
+    width: calc(50% + 1px);
+    position: fixed;
+    top: 0;
+    background-color: #422846;
+    -webkit-transition: opacity .1s linear,-webkit-transform 1s cubic-bezier(.645,.045,.355,1);
+    transition: opacity .1s linear,-webkit-transform 1s cubic-bezier(.645,.045,.355,1);
+    transition: transform 1s cubic-bezier(.645,.045,.355,1),opacity .1s linear;
+    transition: transform 1s cubic-bezier(.645,.045,.355,1),opacity .1s linear,-webkit-transform 1s cubic-bezier(.645,.045,.355,1);
+}
+
+@media(max-width:768px){
+    .images-tiles{  
+        padding-top: 100px;
+    }
+}
+
+
+.member-tiles .tile{
+    position: relative;
+    padding: 2px;
+    transition: all ease-out 1s;
+    transform-style: preserve-3d;
+}
+
+.team-item .name {
+    z-index: 10;
+    top: -22px;
+}
+.team-item .name h2 {
+    font-family: 'Campton';
+    font-weight: 800;
+    font-size: 35px;
+    margin-bottom: 0px;
+    text-shadow: 2px -1px 8px black;
+    line-height: 32px;
+}
+
+.team-item .name span{
+    font-family: 'Campton';
 }

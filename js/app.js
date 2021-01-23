@@ -1,3 +1,5 @@
+
+
 window.addEventListener('DOMContentLoaded', (event) => {
 	setTimeout(function(){ 
 		
@@ -5,8 +7,17 @@ window.addEventListener('DOMContentLoaded', (event) => {
 			el: document.querySelector('[data-scroll-container]'),
 			smooth: true
 		  });
+
+		  
 	 }, 3000);
-    
+
+	 setTimeout(function(){ 
+		
+		$('.transitionBars').addClass('open');
+
+		  
+	 }, 3300);
+	 
 });
 // cursor
 
