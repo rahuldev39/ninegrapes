@@ -19,12 +19,12 @@ body {
     color: white;
     
 }
-@media(min-width:992px){
+/* @media(min-width:992px){
     body{
         overflow: hidden;
     }
     
-}
+} */
 .text-grapes{
     color: #a56fae;
 }
@@ -94,6 +94,9 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+.header__menu img{
+    pointer-events: none;
 }
 .hero-section .header-content{
     padding-top: 100px;
@@ -269,7 +272,7 @@ body {
 .bg-text {
     color: #ffffff0a;
     font-size: 7rem;
-    top: 10%;
+    top: 108px;
     left: 15%;
     text-transform: uppercase;
     line-height: 96px;
@@ -547,4 +550,7 @@ footer a:hover{
 
 .team-item .name span{
     font-family: 'Campton';
+}
+.team-item {
+    padding: 20px 0px;
 }
