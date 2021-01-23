@@ -1,7 +1,11 @@
 gsap.registerPlugin(ScrollTrigger);
 
-window.addEventListener('DOMContentLoaded', (event) => {
+$(document).ready(function(){
 	$('.transitionBars').addClass('open');
+	$('body').addClass('page-loaded');
+})
+window.addEventListener('DOMContentLoaded', (event) => {
+	
 });
 
 
