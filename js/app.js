@@ -1,18 +1,19 @@
+// Page Loader//
 $(document).ready(function(){
 	$('.transitionBars').addClass('open');
 	$('body').addClass('page-loaded');
 })
 
 
+//Locomotive Scroll//
 const locoScroll = new LocomotiveScroll({
 	el: document.querySelector(".scrollContainer"),
 	smooth: true
   }); 
 
-
   locoScroll.on("scroll", ScrollTrigger.update);
 
-  // tell ScrollTrigger to use these proxy methods for the ".smooth-scroll" element since Locomotive Scroll is hijacking things
+  // tell ScrollTrigger to use these proxy methods for the ".scrollContainer" element since Locomotive Scroll is hijacking things
   ScrollTrigger.scrollerProxy(".scrollContainer", {
 	scrollTop(value) {
 	  return arguments.length ? locoScroll.scrollTo(value, 0, 0) :    locoScroll.scroll.instance.scroll.y;
@@ -26,6 +27,8 @@ pinType: document.querySelector(".scrollContainer").style.transform ? "transform
 
 
 
+
+//Team page tiles animation//
 gsap.registerPlugin(ScrollTrigger);
 
 const tiles = gsap.utils.toArray('.member-tiles .tile');
@@ -42,13 +45,14 @@ tiles.forEach(tile => {
 
 // each time the window updates, we should refresh ScrollTrigger and then update LocomotiveScroll. 
 ScrollTrigger.addEventListener("refresh", () => locoScroll.update());
-
 // after everything is set up, refresh() ScrollTrigger and update LocomotiveScroll because padding may have been added for pinning, etc.
 ScrollTrigger.refresh();
 
-// CURSOR
-var cursor = document.querySelector(".cursor") 
-follower = $(".cursor-follower");
+
+
+
+// CURSOR//
+var cursor = document.querySelector(".cursor") ;
 
 function moveCircle(e) {
   gsap.to(cursor, 0.3, {
@@ -80,25 +84,22 @@ hoverLinks.forEach( links => {
 	})
 });
 	 
-	
+  
 
-  var t1 = new TimelineMax({paused: true});
+//Menu Obverlay Animation//
+  var t1 = gsap.timeline({paused: true});
 
-  t1.to(".overlay", 1, {
-		opacity: 1,
-		ease: Expo.easeInOut
-  });
-
-  t1.staggerFrom(".menu ul li", 0.8, {y: 60, opacity: 0, ease: Expo.easeOut}, 0.1);
-
+  t1.to(".overlay", 1, { opacity: 1, ease: Expo.easeInOut });
+  t1.from(".menu ul li", {y: 60, opacity: 0, ease: Expo.easeOut, stagger: 0.1});
+  
   t1.reverse();
   $(document).on("click", ".menu-btn", function() {
 		t1.reversed(!t1.reversed());
 		$('.menu').toggleClass('show');
   });
 
-
-
+  
+//Clock//
   var tick;
     function stop() {
     clearTimeout(tick);
