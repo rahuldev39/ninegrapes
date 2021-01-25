@@ -1,12 +1,36 @@
 
 document.addEventListener('readystatechange', () => {    
-  $('body').addClass('page-loaded');
-  loader()
+  
 });
 
+$(document).ready(function () {
+  // Images loaded is zero because we're going to process a new set of images.
+  var imagesLoaded = 0
+  // Total images is still the total number of <img> elements on the page.
+  var totalImages = $("img").length
 
+  // Step through each image in the DOM, clone it, attach an onload event
+  // listener, then set its source to the source of the original image. When
+  // that new image has loaded, fire the imageLoaded() callback.
+  $("img").each(function (idx, img) {
+    $("<img>").on("load", imageLoaded).attr("src", $(img).attr("src"))
+  })
 
+  // Do exactly as we had before -- increment the loaded count and if all are
+  // loaded, call the allImagesLoaded() function.
+  function imageLoaded() {
+    imagesLoaded++
+    if (imagesLoaded == totalImages) {
+      allImagesLoaded()
+    }
+  }
 
+  function allImagesLoaded() {
+    $('body').addClass('page-loaded');
+  loader()
+  }
+
+})
 
 //######################---------------Page Loader-----------########################//
 if ($(".transitionBars").length) {
@@ -19,6 +43,9 @@ if ($(".transitionBars").length) {
 
 
 //####################----------Locomotive Scroll--------######################//
+
+
+
 const locoScroll = new LocomotiveScroll({
 	el: document.querySelector(".scrollContainer"),
 	smooth: true
@@ -36,7 +63,10 @@ return {top: 0, left: 0, width: window.innerWidth, height: window.innerHeight};
 pinType: document.querySelector(".scrollContainer").style.transform ? "transform" : "fixed"
 });
 
-
+// each time the window updates, we should refresh ScrollTrigger and then update LocomotiveScroll. 
+ScrollTrigger.addEventListener("refresh", () => locoScroll.update());
+// after everything is set up, refresh() ScrollTrigger and update LocomotiveScroll because padding may have been added for pinning, etc.
+ScrollTrigger.refresh();
 
 
 
@@ -83,10 +113,7 @@ if($('.creative-item').length){
 
 
 
-// each time the window updates, we should refresh ScrollTrigger and then update LocomotiveScroll. 
-ScrollTrigger.addEventListener("refresh", () => locoScroll.update());
-// after everything is set up, refresh() ScrollTrigger and update LocomotiveScroll because padding may have been added for pinning, etc.
-ScrollTrigger.refresh();
+
 
 
 
@@ -114,8 +141,7 @@ hoverLinks.forEach( links => {
 	links.addEventListener('mouseover', (e)=>{
 		const rect = e.target.getBoundingClientRect();
 		cursor.style.width = `${rect.width + 30}px`;
-		cursor.style.height = `${rect.width + 30}px`;
-		console.log(cursor); 
+		cursor.style.height = `${rect.width + 30}px`; 
 	});
 	links.addEventListener('mouseleave', ()=>{
 		
