@@ -1,11 +1,24 @@
-// Page Loader//
-$(document).ready(function(){
-	$('.transitionBars').addClass('open');
-	$('body').addClass('page-loaded');
-})
+
+document.addEventListener('readystatechange', () => {    
+  $('body').addClass('page-loaded');
+  loader()
+});
 
 
-//Locomotive Scroll//
+
+
+
+//######################---------------Page Loader-----------########################//
+if ($(".transitionBars").length) {
+  var loader = function(){
+    var loaderTimeline = gsap.timeline()
+    loaderTimeline.to(".transitionBars .bar--left", { y:'100%', duration:1, ease: "power1.out" });
+    loaderTimeline.to(".transitionBars .bar--right", { y:'-100%', duration:1, ease: "power1.out" },"<");
+  }
+}
+
+
+//####################----------Locomotive Scroll--------######################//
 const locoScroll = new LocomotiveScroll({
 	el: document.querySelector(".scrollContainer"),
 	smooth: true
@@ -13,35 +26,62 @@ const locoScroll = new LocomotiveScroll({
 
   locoScroll.on("scroll", ScrollTrigger.update);
 
-  // tell ScrollTrigger to use these proxy methods for the ".scrollContainer" element since Locomotive Scroll is hijacking things
   ScrollTrigger.scrollerProxy(".scrollContainer", {
 	scrollTop(value) {
 	  return arguments.length ? locoScroll.scrollTo(value, 0, 0) :    locoScroll.scroll.instance.scroll.y;
-}, // we don't have to define a scrollLeft because we're only scrolling vertically.
+}, 
 getBoundingClientRect() {
 return {top: 0, left: 0, width: window.innerWidth, height: window.innerHeight};
 },
-// LocomotiveScroll handles things completely differently on mobile devices - it doesn't even transform the container at all! So to get the correct behavior and avoid jitters, we should pin things with position: fixed on mobile. We sense it by checking to see if there's a transform applied to the container (the LocomotiveScroll-controlled element).
 pinType: document.querySelector(".scrollContainer").style.transform ? "transform" : "fixed"
 });
 
 
 
 
-//Team page tiles animation//
+
+//#################-------Team page tiles animation--------##############//
 gsap.registerPlugin(ScrollTrigger);
 
-const tiles = gsap.utils.toArray('.member-tiles .tile');
+if($('.member-tiles').length){
+    const tiles = gsap.utils.toArray('.member-tiles .tile');
 
-tiles.forEach(tile => {
-  gsap.from(tile,{duration:.03, y:"random(-70, 70)", rotationY:'+=90', 
-  scrollTrigger:{
-	trigger: tile,
-	start: "top center+=100px", 
-	scroller:".scrollContainer",
-}})
+  tiles.forEach(tile => {
 
-})
+    const tilesTimeline = gsap.timeline({
+      scrollTrigger:{
+        trigger: tile,
+        start: "top center+=100px", 
+        scroller:".scrollContainer",
+      }
+    });
+
+    tilesTimeline.from(tile,{duration:.03, y:"random(-70, 70)", rotationY:'+=90'});
+  })
+}
+
+
+
+
+
+
+//##################--------Creative Item animation-------########################//
+if($('.creative-item').length){
+  gsap.defaults({ease: "power3"});
+  gsap.set(".creative-item", {y: 100, opacity:0});
+  
+  ScrollTrigger.batch(".creative-item",{
+    scroller:".scrollContainer",
+    onEnter:batch => gsap.to(batch, {opacity: 1, y: 0, stagger: {each: 0.15, grid: [1, 4]}, overwrite: true}),
+    onLeave: batch => gsap.set(batch, {opacity: 0, y: -100, overwrite: true}),
+    onEnterBack: batch => gsap.to(batch, {opacity: 1, y: 0, stagger: 0.15, overwrite: true}),
+    onLeaveBack: batch => gsap.set(batch, {opacity: 0, y: 100, overwrite: true})
+  });
+  ScrollTrigger.addEventListener("refreshInit", () => gsap.set(".creative-item", {y: 0}));  
+}
+
+
+
 
 // each time the window updates, we should refresh ScrollTrigger and then update LocomotiveScroll. 
 ScrollTrigger.addEventListener("refresh", () => locoScroll.update());
@@ -51,9 +91,12 @@ ScrollTrigger.refresh();
 
 
 
-// CURSOR//
-var cursor = document.querySelector(".cursor") ;
 
+
+//#####################-------------CURSOR----------#########################//
+if($('.cursor').length){
+
+var cursor = document.querySelector(".cursor") ;
 function moveCircle(e) {
   gsap.to(cursor, 0.3, {
     css: {
@@ -69,10 +112,7 @@ let hoverLinks = document.querySelectorAll('.hover');
 
 hoverLinks.forEach( links => {
 	links.addEventListener('mouseover', (e)=>{
-		// cursor.addClass('link-grow');
-		
 		const rect = e.target.getBoundingClientRect();
-
 		cursor.style.width = `${rect.width + 30}px`;
 		cursor.style.height = `${rect.width + 30}px`;
 		console.log(cursor); 
@@ -83,10 +123,14 @@ hoverLinks.forEach( links => {
 		cursor.style.height = `40px`;
 	})
 });
-	 
-  
+}
 
-//Menu Obverlay Animation//
+
+
+
+//###################------------Menu Obverlay Animation--------##################// 
+if($('.menu').length){
+  
   var t1 = gsap.timeline({paused: true});
 
   t1.to(".overlay", 1, { opacity: 1, ease: Expo.easeInOut });
@@ -97,24 +141,45 @@ hoverLinks.forEach( links => {
 		t1.reversed(!t1.reversed());
 		$('.menu').toggleClass('show');
   });
+}
 
-  
-//Clock//
-  var tick;
-    function stop() {
-    clearTimeout(tick);
-    }
-    function clock() {
-    var ut=new Date();
-    var h,m,s;
-    var time="        ";
-    h=ut.getHours();
-    m=ut.getMinutes();
-    s=ut.getSeconds();
-    if(s<=9) s="0"+s;
-    if(m<=9) m="0"+m;
-    if(h<=9) h="0"+h;
-    time+=h+":"+m;
-    document.getElementById('clock').innerHTML=time;
-    tick=setTimeout("clock()",1000); 
-    }
+
+
+
+//##########################--------Clock----------###############################//
+if($('.time-text').length){
+
+var tick;
+function stop() {
+clearTimeout(tick);
+}
+function clock() {
+var ut=new Date();
+var h,m,s;
+var time="        ";
+h=ut.getHours();
+m=ut.getMinutes();
+s=ut.getSeconds();
+if(s<=9) s="0"+s;
+if(m<=9) m="0"+m;
+if(h<=9) h="0"+h;
+time+=h+":"+m;
+document.getElementById('clock').innerHTML=time;
+tick=setTimeout("clock()",1000); 
+}
+
+}
+
+//##########################--------Play Pause Home Video----------###############################//
+$('.play-btn').click(function () {
+  var mediaVideo = $("#video-banner").get(0);
+  if (mediaVideo.paused) {
+      mediaVideo.play();
+      $(this).removeClass('paused');
+      $(this).text('Pause')
+  } else {
+      mediaVideo.pause();
+      $(this).addClass('paused');
+      $(this).text('Play')
+ }
+});

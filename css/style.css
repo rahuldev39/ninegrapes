@@ -18,7 +18,6 @@ body {
     overflow-x: hidden;
     color: white;
     overflow-y: hidden
-    
 }
 body.page-loaded{
     overflow-y: visible;
@@ -43,25 +42,83 @@ body.page-loaded{
 .btn-link:hover, .btn-link:focus{
     text-decoration: none;
 }
-.section-padder{
-    padding: 100px 0px;
+.btn-neomorph {
+    color: #a877b5;
+    padding: 10px 24px;
+    font-weight: 500;
+    text-transform: uppercase;
+    font-size: 14px;
+    border-radius: 8px;
+    border: 1px solid #9b6da763;
+    box-shadow: 6px 6px 16px 0 rgb(166 118 179 / 4%), -6px -7px 12px 0 rgb(140 100 151 / 8%);
 }
-.follower {
-    border-radius: 50%;
-    overflow: hidden;
-    border: 2px solid #fff;
-    position: absolute;
+.bg-img{
+    left: 0;
+    top: 0;
+}
+.f-18{
+    font-size: 18px;
+}
+
+/*##################-------Loader---------##########################*/
+.transitionBars {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
     pointer-events: none;
-    height: 40px;
-    width: 40px;
-    z-index: 10000;
-    transform: translate(-50%, -50%);
-    transition-duration: .3s;
-    transition-property: width, height;
-    transition-timing-function: ease-out;
-    transform-origin: 100% 100%;
-    
 }
+.transitionBars .bar--right {
+    right: 0;
+}
+.transitionBars .bar--left {
+    left: 0;
+}
+
+.transitionBars .bar--left, 
+.transitionBars .bar--right {
+    height: 100%;
+    width: calc(50% + 1px);
+    position: fixed;
+    top: 0;
+    background-color: #422846;
+    opacity: 1;
+}
+
+/*##################-------Cursor---------##########################*/
+.cursor {
+    position: absolute;
+    z-index: 10;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    box-shadow: 0px 0px 0px 1px #23bfa0;
+  }  
+  .cursor.link-grow{
+    box-shadow: 0px 0px 0px .5px #23bfa0;
+}
+
+/*##################-------Cursor---------##########################*/
+.cursor {
+    position: absolute;
+    z-index: 10;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    box-shadow: 0px 0px 0px 1px #23bfa0;
+  }  
+  .cursor.link-grow{
+    box-shadow: 0px 0px 0px .5px #23bfa0;
+}
+
+/*##################-------Navigation---------##########################*/
 .navbar-toggler {
     position: absolute;
     left: 50%;
@@ -101,82 +158,8 @@ body.page-loaded{
     padding-top: 100px;
     z-index: 10;
 }
-.hero-section::before {
-    content: "";
-    left: 0;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    background-color: #00000096;
-    position: absolute;
-    z-index: 1;
-}
-.Hero-title{
-    font-size: 5.5rem;
-    line-height: 1;
-}
-.hero-eyebrow{
-    font-size: 2.8rem;
-}
 
-.Hero-title-lg{
-    font-size: 9rem;
-    line-height: 1;
-}
-@media(max-width:992px){
-    .Hero-title-lg {
-        font-size: 7rem;
-        line-height: 1;
-        margin-bottom: 30px;
-    }
-    .header-content .text-lg-right{
-        order: -1;
-    }
-}
-@media(max-width:576px){
-    .Hero-title-lg {
-        font-size: 5rem;
-    }
-}
-.time-text{
-    font-size: 6rem;
-}
-.header-bottom .btn{
-    font-weight: 600;
-}
-@media(max-width:992px){
-    .cursor {
-        display: none;
-    }     
-}
-.cursor {
-    position: absolute;
-    z-index: 10;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    pointer-events: none;
-    transform: translate(-50%, -50%);
-    z-index: 1000;
-    box-shadow: 0px 0px 0px 1px #23bfa0;
-  }  
-  .cursor.link-grow{
-    box-shadow: 0px 0px 0px .5px #23bfa0;
-}
-
-.play-btn {
-    background-image: url(../images/pause.svg);
-    background-repeat: no-repeat;
-    background-position: left center;
-    background-size: 14px;
-    padding-left: 18px;
-    min-width: 100px;
-}
-.play-btn.paused{
-    background-image: url(../images/play.svg);
-    background-size: 10px;
-}
-
+/*##################-------Overlay Menu---------##########################*/
 .overlay {
     background: #000000;
     position: fixed;
@@ -206,9 +189,6 @@ body.page-loaded{
     margin: 0;
     padding: 0;
 }
-
-
-
 .overlay li {
     padding-top: 5px;
     font-size: 50px;
@@ -227,8 +207,6 @@ body.page-loaded{
     text-decoration: none;
     color: white;
 }
-
-
 .overlay:before {
     animation: grain 1s steps(10) infinite;
     background-image: url(../images/grains.png);
@@ -267,18 +245,63 @@ body.page-loaded{
     }
 }
 
+/*##################-------Hero Section---------##########################*/
+.hero-section::before {
+    content: "";
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    background-color: #00000096;
+    position: absolute;
+    z-index: 1;
+}
+.Hero-title{
+    font-size: 5.5rem;
+    line-height: 1;
+}
+.hero-eyebrow{
+    font-size: 2.8rem;
+}
+.Hero-title-lg{
+    font-size: 9rem;
+    line-height: 1;
+}
+.time-text{
+    font-size: 6rem;
+}
+.header-bottom .btn{
+    font-weight: 600;
+}
+.play-btn {
+    background-image: url(../images/pause.svg);
+    background-repeat: no-repeat;
+    background-position: left center;
+    background-size: 14px;
+    padding-left: 18px;
+}
+.play-btn.paused{
+    background-image: url(../images/play.svg);
+    background-size: 10px;
+}
+
+
+/*##################-------Background-text---------##########################*/
 .bg-text-padding{
-    padding-top: 180px;
+    padding-top: 180px !important;
 }
 .bg-text {
     color: #ffffff0a;
     font-size: 7rem;
-    top: 108px;
     left: 15%;
     text-transform: uppercase;
     line-height: 96px;
 }
 
+/*##################-------Section---------##########################*/
+.section-padder{
+    padding: 100px 0px;
+}
 .section-header::after {
     content: "";
     height: 2px;
@@ -287,10 +310,16 @@ body.page-loaded{
     margin-top: 20px;
     display: inline-block;
 }
-.f-18{
-    font-size: 18px;
+.text-header::before{
+    content: "";
+    width: 50%;
+    height: 2px;
+    display: inline-block;
+    background-color: white;
+    margin-bottom: 15px;
 }
 
+/*##################-------Clients Section---------##########################*/
 .clients-row .client-items img{
     width: 90%;
 }
@@ -323,6 +352,8 @@ body.page-loaded{
         width: 50%;
     } 
 }
+
+/*##################-------Footer---------##########################*/
 footer {
     background-color: #161417;
 }
@@ -333,36 +364,13 @@ footer a{
 footer a:hover{
     color:#a56fae ;
 }
-.btn-neomorph {
-    color: #a877b5;
-    padding: 10px 24px;
-    font-weight: 500;
-    text-transform: uppercase;
-    font-size: 14px;
-    border-radius: 8px;
-    border: 1px solid #9b6da763;
-    box-shadow: 6px 6px 16px 0 rgb(166 118 179 / 4%), -6px -7px 12px 0 rgb(140 100 151 / 8%);
-}
 
+/*##################-------Tiles---------##########################*/
 .images-tiles .tile{
     position: relative;
 }
 
-.bg-img{
-    left: 0;
-    top: 0;
-}
-
-.text-header::before{
-    content: "";
-    width: 50%;
-    height: 2px;
-    display: inline-block;
-    background-color: white;
-    margin-bottom: 15px;
-}
-
-    
+/*##################-------Services Section---------##########################*/    
 .services-item::before{
     position: absolute;
     height: 100%;
@@ -393,34 +401,8 @@ footer a:hover{
     max-width: 400px;
     margin: 0 auto;
 }
-@media(max-width:768px){
-    .bg-text{
-        display: none;
-    }
-    .bg-text-padding {
-        padding-top: 100px;
-    }
-    .footer-col{
-        margin-bottom: 30px;
-    }
-    .overlay li {
-        font-size: 35px;
-    }
-    .hero-eyebrow {
-        font-size: 2rem;
-    }
-    .Hero-title {
-        font-size: 4.5rem;
-    }
-}
-@media(max-width:576px){
-    .Hero-title {
-        font-size: 3.5rem;
-    }
-    .time-text {
-        font-size: 4rem;
-    }
-}
+
+/*##################-------Creative Corner---------##########################*/ 
 .creative-item {
     color: white;
     text-align: center;
@@ -437,7 +419,6 @@ footer a:hover{
     margin-bottom: 0px;
     margin-top: 12px;
 }
-
 .creative-item div::before{
     position: absolute;
     height: 100%;
@@ -467,68 +448,7 @@ footer a:hover{
     opacity: 0;
   }
 
-  .transitionBars {
-    height: 100%;
-    width: 100%;
-    position: fixed;
-    top: 0;
-    z-index: 1000;
-    pointer-events: none;
-}
-.transitionBars .bar--right {
-    right: 0;
-}
-.transitionBars .bar--left {
-    left: 0;
-}
- 
-.transitionBars .bar--left, 
-.transitionBars .bar--right {
-    -webkit-transform: translateY(0);
-    transform: translateY(0);
-    opacity: 1;
-}
-
-
-.transitionBars.open .bar--left {
-    -webkit-transform: translateY(100%);
-    transform: translateY(100%);
-}
-
-.transitionBars.open .bar--right {
-    -webkit-transform: translateY(-100%);
-    transform: translateY(-100%);
-}
-.transitionBars.bar, 
-.transitionBars.open .bar--left, 
-.transitionBars.open .bar--right {
-    opacity: 0;
-    -webkit-transition: opacity .1s linear 1.4s,-webkit-transform 1s cubic-bezier(.645,.045,.355,1);
-    transition: opacity .1s linear 1.4s,-webkit-transform 1s cubic-bezier(.645,.045,.355,1);
-    transition: transform 1s cubic-bezier(.645,.045,.355,1),opacity .1s linear 1.4s;
-    transition: transform 1s cubic-bezier(.645,.045,.355,1),opacity .1s linear 1.4s,-webkit-transform 1s cubic-bezier(.645,.045,.355,1);
-}
-.transitionBars .bar, 
-.transitionBars .bar--left, 
-.transitionBars .bar--right {
-    height: 100%;
-    width: calc(50% + 1px);
-    position: fixed;
-    top: 0;
-    background-color: #422846;
-    -webkit-transition: opacity .1s linear,-webkit-transform 1s cubic-bezier(.645,.045,.355,1);
-    transition: opacity .1s linear,-webkit-transform 1s cubic-bezier(.645,.045,.355,1);
-    transition: transform 1s cubic-bezier(.645,.045,.355,1),opacity .1s linear;
-    transition: transform 1s cubic-bezier(.645,.045,.355,1),opacity .1s linear,-webkit-transform 1s cubic-bezier(.645,.045,.355,1);
-}
-
-@media(max-width:768px){
-    .images-tiles{  
-        padding-top: 100px;
-    }
-}
-
-
+/*##################-------Team member tiles---------##########################*/
 .member-tiles .tile{
     position: relative;
     padding: 2px;
