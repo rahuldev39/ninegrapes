@@ -91,10 +91,6 @@ if($('.member-tiles').length){
 }
 
 
-
-
-
-
 //##################--------Creative Item animation-------########################//
 if($('.creative-item').length){
   gsap.defaults({ease: "power3"});
@@ -112,9 +108,20 @@ if($('.creative-item').length){
 
 
 
+//##################--------services tile-------########################//
 
+if($('.services-item').length){
+  gsap.set('.services-item',{y:100, opacity:0});
 
-
+  ScrollTrigger.batch('.services-item',{
+    scroller:".scrollContainer",
+    onEnter: batch => gsap.to(batch,{y:0, opacity:1, stagger:{each:.15, grid:[1,3]}, overwrite:true}),
+    onLeave: batch => gsap.set(batch,{y:-100, opacity:0, overwrite:true}),
+    onEnterBack:batch => gsap.to(batch, {y:0, opacity:1, stagger:{each:.15, grid:[1,3]}, overwrite:true}),
+    onLeaveBack: batch => gsap.set(batch,{y:100, opacity:0, overwrite:true})
+  })
+  ScrollTrigger.addEventListener("refreshInit", () => gsap.set(".services-item", {y: 0}));  
+}
 
 
 
