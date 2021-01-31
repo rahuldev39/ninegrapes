@@ -59,7 +59,9 @@ body.page-loaded{
 .f-18{
     font-size: 18px;
 }
-
+.mb-30{
+    margin-bottom: 30px;
+}
 /*##################-------Loader---------##########################*/
 .transitionBars {
     height: 100%;
@@ -474,4 +476,65 @@ footer a:hover{
 }
 .team-item {
     padding: 20px 0px;
+}
+
+
+/*##################-------Blog---------##########################*/
+.blog-item {
+    background-color: #262427;
+}
+.blog-item .blog-item-footer a{
+    color: white;
+    font-size: 13px;
+}
+.blog-item .blog-content p {
+    font-size: 13px;
+    color: #b9b9b9;
+}
+.blog-item .blog-content h5 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+.blog-item .blog-content .date {
+    font-size: 12px;
+    color: #ffffff;
+}
+.blog-item .blog-content{
+    margin-bottom: 30px;
+}
+.blog-item .blog-thumb img{
+    transition: all ease-out 300ms;
+}
+.blog-item:hover .blog-thumb img{
+    transform: scale(1.1);
+}
+.blog-item .blog-content a{
+    color: white;
+}
+.blog-item .blog-content .read-more{
+    font-size: 13px;
+}
+
+li.page-item {
+    margin: 5px;
+}
+.page-link {
+    border-radius: 30px !important;
+    color: #ffffff;
+    font-weight: 500;
+    padding: 11px 16px;
+    background-color: #262427;
+    border: 1px solid #ffffff2b;
+    font-size: 14px;
+}
+.page-link:hover {
+    color: #ffffff;
+    background-color: #a56fae;
+    border-color: #a56fae;
+}
+
+.page-item.active .page-link {
+    background-color: #a56fae;
+    border-color: #a56fae;
 }

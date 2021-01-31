@@ -123,8 +123,22 @@ if($('.services-item').length){
   ScrollTrigger.addEventListener("refreshInit", () => gsap.set(".services-item", {y: 0}));  
 }
 
+//##################--------Blog Items-------########################//
 
 
+if($('.blog-item').length){
+  gsap.set('.blog-item',{y:100, opacity:0});
+
+  ScrollTrigger.batch('.blog-item',{
+    scroller:".scrollContainer",
+    onEnter: batch => gsap.to(batch, {y:0, opacity:1, stagger:{each:.15, grid:[1,3],overwrite:true}}),
+    onLeave: batch => gsap.set(batch,{y:-100, opacity:0, overwrite:true}),
+    onEnterBack: batch => gsap.to(batch, {y:0, opacity:1, stagger:{each:.15, grid:[1,3],overwrite:true}}),
+    onLeaveBack: batch => gsap.to(batch,{y:100, opacity:0, overwrite:true} )
+  })
+
+
+}
 
 
 //#####################-------------CURSOR----------#########################//

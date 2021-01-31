@@ -16,7 +16,7 @@
         display: none;
     }
     .bg-text-padding {
-        padding-top: 100px;
+        padding-top: 100px !important;
     }
     .footer-col{
         margin-bottom: 30px;
