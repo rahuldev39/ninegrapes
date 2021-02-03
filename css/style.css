@@ -62,6 +62,43 @@ body.page-loaded{
 .mb-30{
     margin-bottom: 30px;
 }
+.big-title {
+    color: #ffffff0a;
+    font-size: 7rem;
+    line-height: .96em;
+}
+.form-control {
+    border-radius: 3px;
+    background-color: #222023;
+    border-color: #252525;
+    font-size: 14px;
+}
+.form-control:focus {
+    color: #f7f7f7;
+    background-color: #222023;
+    border-color: #a56fae4a;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgb(165 111 174 / 9%);
+}
+.custom-file-label {
+    background-color: #222023;
+    border: 1px solid #252525;
+    border-radius: 3px;
+}
+.custom-file-input:focus~.custom-file-label {
+    border-color: #a56fae4a;
+    box-shadow: 0 0 0 0.2rem rgb(165 111 174 / 9%);
+}
+.custom-file-label::after {
+    line-height: 1.5;
+    color: #a56fae;
+    background-color: #a56fae0d;
+    border-radius: 0 3px 3px 0;
+    font-size: 14px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
 /*##################-------Loader---------##########################*/
 .transitionBars {
     height: 100%;
@@ -537,4 +574,27 @@ li.page-item {
 .page-item.active .page-link {
     background-color: #a56fae;
     border-color: #a56fae;
+}
+
+
+.opening-tiles{
+    background-color: #262427;
+    min-height: 150px;
+    font-weight: bold;
+    color: #a56fae;
+    display: block;
+    transition: all ease-out 300ms;
+}
+.opening-tiles:hover{
+    background-color: #a56fae;
+    color: white;
+    text-decoration: none;
+}
+.career-form {
+    background-color: #111111;
+    border-radius: 12px;
+    box-shadow: 6px 6px 11px #00000099;
+}
+.title-anim span{
+    display: inline-block;
 }

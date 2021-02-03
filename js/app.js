@@ -91,6 +91,37 @@ if($('.member-tiles').length){
 }
 
 
+//#################------career page tiles animation--------##############//
+
+if($('.title-anim').length){
+
+  
+  
+  gsap.from('.title-anim span', { y: 50, opacity:0, rotationX:'-=90',
+    stagger: {each: 0.15, grid: [1, 4]},
+    scrollTrigger:{
+      trigger: '.title-anim',
+      start:"top center+=100px",
+      scroller:".scrollContainer",
+    }
+  })
+
+}
+
+if(('.opening-tiles').length){
+
+  gsap.defaults({ease:'power3'});
+  gsap.set('.opening-tiles',{y:50, opacity:0,rotationX:'-=90'});
+  
+  ScrollTrigger.batch('.opening-tiles',{
+    scroller:".scrollContainer",
+    onEnter:batch => gsap.to(batch, {y:0, opacity:1, rotationX:1, stagger:{each:0.15}, overwrite:true}),
+  })
+
+
+}
+
+
 //##################--------Creative Item animation-------########################//
 if($('.creative-item').length){
   gsap.defaults({ease: "power3"});

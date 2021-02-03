@@ -10,8 +10,22 @@
     .cursor {
         display: none;
     }  
+    .big-title {
+        font-size: 5rem;
+    }
+    .opening-tiles {
+        min-height: 96px;
+    }
 }
 @media(max-width:768px){
+    .img-right{
+        order: -1;
+    }
+    .career-chair{
+        max-width: 300px;
+        margin: 0 auto;
+        display: block;
+    }
     .bg-text{
         display: none;
     }
