@@ -99,6 +99,25 @@ body.page-loaded{
     display: flex;
     align-items: center;
 }
+
+.check-list li:before {
+    content: "\f101";
+    font-family: "Font Awesome 5 Free";
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    font-weight: 600;
+    font-size: 12px;
+    color: #a56fae;
+}
+.check-list li {
+    position: relative;
+    padding-left: 21px;
+    margin-bottom: 10px;
+    line-height: 23px;
+    font-size: 14px;
+}
+
 /*##################-------Loader---------##########################*/
 .transitionBars {
     height: 100%;
@@ -128,34 +147,20 @@ body.page-loaded{
 /*##################-------Cursor---------##########################*/
 .cursor {
     position: absolute;
-    z-index: 10;
+    z-index: 1000;
     width: 40px;
     height: 40px;
     border-radius: 50%;
     pointer-events: none;
     transform: translate(-50%, -50%);
-    z-index: 1000;
+    z-index: 100000;
     box-shadow: 0px 0px 0px 1px #23bfa0;
-  }  
+} 
   .cursor.link-grow{
     box-shadow: 0px 0px 0px .5px #23bfa0;
 }
 
-/*##################-------Cursor---------##########################*/
-.cursor {
-    position: absolute;
-    z-index: 10;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    pointer-events: none;
-    transform: translate(-50%, -50%);
-    z-index: 1000;
-    box-shadow: 0px 0px 0px 1px #23bfa0;
-  }  
-  .cursor.link-grow{
-    box-shadow: 0px 0px 0px .5px #23bfa0;
-}
+
 
 /*##################-------Navigation---------##########################*/
 .navbar-toggler {
@@ -597,4 +602,22 @@ li.page-item {
 }
 .title-anim span{
     display: inline-block;
+}
+
+/*##################-------Modal---------##########################*/
+.modal-header {
+    background-color: #a56fae;
+}
+.close {
+    color: #fff;
+    text-shadow: none;
+    opacity: 1;
+}
+
+@media (min-width: 576px)
+{
+    .modal-dialog {
+        max-width: 690px;
+        margin: 1.75rem auto;
+    }
 }

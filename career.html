@@ -12,6 +12,7 @@
 
   <link href="vendor/locomotive/locomotive.css" rel="stylesheet">
   <link href="vendor/fancybox/jquery.fancybox.min.css" rel="stylesheet">
+  <link href="./vendor/font-awesome/css/fontawesome.min.css" rel="stylesheet" />
   
   <!-- Bootstrap core CSS -->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -118,22 +119,22 @@ of type and scrambled it to make a type specimen book. It has survived not only 
                 <h1 class="big-title Campton font-weight-bold mb-4" data-scroll data-scroll-speed="-.4">WE’ARE <br> HIRING</h1>
                 <div class="row mx-n1" >
                   <div class="col-md-6 mb-2 px-1">
-                    <a href="#" class="opening-tiles p-4">
+                    <a href="#" class="opening-tiles p-4"  data-target="#job-modal" data-toggle="modal">
                       Graphic Designer
                     </a>
                   </div>
                   <div class="col-md-6 mb-2 px-1">
-                    <a href="#" class="opening-tiles p-4">
+                    <a href="#" class="opening-tiles p-4" data-target="#job-modal" data-toggle="modal">
                       SEO
                     </a>
                   </div>
                   <div class="col-md-6 mb-2 px-1">
-                    <a href="#" class="opening-tiles p-4">
+                    <a href="#" class="opening-tiles p-4" data-target="#job-modal" data-toggle="modal">
                       PHP Developer
                     </a>
                   </div>
                   <div class="col-md-6 mb-2 px-1">
-                    <a href="#" class="opening-tiles p-4">
+                    <a href="#" class="opening-tiles p-4" data-target="#job-modal" data-toggle="modal">
                       Sales
                     </a>
                   </div>
@@ -258,7 +259,83 @@ of type and scrambled it to make a type specimen book. It has survived not only 
 
   </div>
 
-  
+  <!-- Modal -->
+  <div class="modal fade job-modal text-dark" id="job-modal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content border-0">
+      <div class="modal-header p-4">
+        <h6 class="modal-title text-white font-weight-black" id="exampleModalLabel">Vacancies Detail</h6>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body p-4">
+        <h5 class="Campton text-grapes font-weight-bold mb-3">SR. Graphic Designer</h5>
+        <div class="job-description">
+          <ul class="check-list list-unstyled mb-4">
+            <li>
+              The job requires conceptualizing and designing web and
+              multimedia software and applications (Adobe Photoshop, Adobe
+              illustrator, InDesign and CorelDraw).
+            </li>
+            <li>
+              Designing graphic content, illustrations, and info-graphics.
+            </li>
+            <li>
+              Come up with out of the box ideas in alignment with the
+              requirement.
+            </li>
+            <li>
+              Graphics Designing skills through Adobe Photoshop &amp;
+              Illustrator Coordinate e-Newsletter, including design.
+            </li>
+            <li>
+              Design and execute a new look and feel across all digital and
+              print material that accurately reflects new brand positioning.
+            </li>
+            <li>Designing visual assets for applications.</li>
+            <li>Preparing designs for digital or print publication.</li>
+            <li>
+              Interfacing with the design head as well as the creative team
+              for briefing.
+            </li>
+          </ul>
+
+          <hr>
+
+          <h5 class="Campton text-grapes font-weight-bold mb-3">
+           Desired Candidate Profile
+          </h5>
+          <ul class="check-list list-unstyled ">
+            <li>Candidate should a good experience in Branding.</li>
+            <li>
+              Good communication skills written and oral, to communicate
+              with international stakeholders.
+            </li>
+            <li>
+              Working experience with image design tools (e.g. Corel Draw,
+              Adobe Photoshop, Adobe Illustrator, Adobe InDesign, Adobe
+              Premiere, Adobe Media Encoder etc).
+            </li>
+            <li>
+              A keen eye for visual details and ability to meet deadlines
+              and collaborate with team members and other teams.
+            </li>
+          </ul>
+     
+        </div>
+
+        
+      </div>
+
+    </div>
+  </div>
+</div>
 
   <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.slim.min.js"></script>
