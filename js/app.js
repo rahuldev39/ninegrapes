@@ -44,29 +44,31 @@ if ($(".transitionBars").length) {
 
 //####################----------Locomotive Scroll--------######################//
 
+if($('.scrollContainer').length){
+  const locoScroll = new LocomotiveScroll({
+    el: document.querySelector(".scrollContainer"),
+    smooth: true
+    }); 
+  
+    locoScroll.on("scroll", ScrollTrigger.update);
+  
+    ScrollTrigger.scrollerProxy(".scrollContainer", {
+    scrollTop(value) {
+      return arguments.length ? locoScroll.scrollTo(value, 0, 0) :    locoScroll.scroll.instance.scroll.y;
+  }, 
+  getBoundingClientRect() {
+  return {top: 0, left: 0, width: window.innerWidth, height: window.innerHeight};
+  },
+  pinType: document.querySelector(".scrollContainer").style.transform ? "transform" : "fixed"
+  });
+  
+  // each time the window updates, we should refresh ScrollTrigger and then update LocomotiveScroll. 
+  ScrollTrigger.addEventListener("refresh", () => locoScroll.update());
+  // after everything is set up, refresh() ScrollTrigger and update LocomotiveScroll because padding may have been added for pinning, etc.
+  ScrollTrigger.refresh();
+}
 
 
-const locoScroll = new LocomotiveScroll({
-	el: document.querySelector(".scrollContainer"),
-	smooth: true
-  }); 
-
-  locoScroll.on("scroll", ScrollTrigger.update);
-
-  ScrollTrigger.scrollerProxy(".scrollContainer", {
-	scrollTop(value) {
-	  return arguments.length ? locoScroll.scrollTo(value, 0, 0) :    locoScroll.scroll.instance.scroll.y;
-}, 
-getBoundingClientRect() {
-return {top: 0, left: 0, width: window.innerWidth, height: window.innerHeight};
-},
-pinType: document.querySelector(".scrollContainer").style.transform ? "transform" : "fixed"
-});
-
-// each time the window updates, we should refresh ScrollTrigger and then update LocomotiveScroll. 
-ScrollTrigger.addEventListener("refresh", () => locoScroll.update());
-// after everything is set up, refresh() ScrollTrigger and update LocomotiveScroll because padding may have been added for pinning, etc.
-ScrollTrigger.refresh();
 
 
 
@@ -128,7 +130,7 @@ if($('.creative-item').length){
   gsap.set(".creative-item", {y: 100, opacity:0});
   
   ScrollTrigger.batch(".creative-item",{
-    scroller:".scrollContainer",
+    
     onEnter:batch => gsap.to(batch, {opacity: 1, y: 0, stagger: {each: 0.15, grid: [1, 4]}, overwrite: true}),
     onLeave: batch => gsap.set(batch, {opacity: 0, y: -100, overwrite: true}),
     onEnterBack: batch => gsap.to(batch, {opacity: 1, y: 0, stagger: 0.15, overwrite: true}),
@@ -143,15 +145,18 @@ if($('.creative-item').length){
 
 if($('.services-item').length){
   gsap.set('.services-item',{y:100, opacity:0});
+ var abc =  function(){
+    ScrollTrigger.batch('.services-item',{
+      scroller:".scrollContainer",
+      onEnter: batch => gsap.to(batch,{y:0, opacity:1, stagger:{each:.15, grid:[1,3]}, overwrite:true}),
+      onLeave: batch => gsap.set(batch,{y:-100, opacity:0, overwrite:true}),
+      onEnterBack:batch => gsap.to(batch, {y:0, opacity:1, stagger:{each:.15, grid:[1,3]}, overwrite:true}),
+      onLeaveBack: batch => gsap.set(batch,{y:100, opacity:0, overwrite:true})
+    })
+    ScrollTrigger.addEventListener("refreshInit", () => gsap.set(".services-item", {y: 0})); 
+  }
 
-  ScrollTrigger.batch('.services-item',{
-    scroller:".scrollContainer",
-    onEnter: batch => gsap.to(batch,{y:0, opacity:1, stagger:{each:.15, grid:[1,3]}, overwrite:true}),
-    onLeave: batch => gsap.set(batch,{y:-100, opacity:0, overwrite:true}),
-    onEnterBack:batch => gsap.to(batch, {y:0, opacity:1, stagger:{each:.15, grid:[1,3]}, overwrite:true}),
-    onLeaveBack: batch => gsap.set(batch,{y:100, opacity:0, overwrite:true})
-  })
-  ScrollTrigger.addEventListener("refreshInit", () => gsap.set(".services-item", {y: 0}));  
+  abc();
 }
 
 //##################--------Blog Items-------########################//
@@ -260,4 +265,35 @@ $('.play-btn').click(function () {
       $(this).addClass('paused');
       $(this).text('Play')
  }
+});
+
+
+
+
+$(document).ready(function(){
+
+  $(".btn-filter").click(function(){
+      var value = $(this).attr('data-filter');
+      
+      if(value == "all")
+      {
+          //$('.filter').removeClass('hidden');
+          $('.filter').show('1000');
+      }
+      else
+      {
+//            $('.filter[filter-item="'+value+'"]').removeClass('hidden');
+//            $(".filter").not('.filter[filter-item="'+value+'"]').addClass('hidden');
+          $(".filter").not('.'+value).hide('3000');
+          $('.filter').filter('.'+value).show('3000');
+          
+      }
+      ScrollTrigger.refresh();
+      $(".btn-filter").removeClass("active");
+      $(this).addClass("active");
+  });
+  
+  
+  
+  
 });

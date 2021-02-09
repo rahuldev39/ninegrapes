@@ -621,3 +621,29 @@ li.page-item {
         margin: 1.75rem auto;
     }
 }
+
+
+::-webkit-scrollbar{width:7px
+}
+::-webkit-scrollbar-track{background:transparent
+}
+::-webkit-scrollbar-thumb{background:#a36fae9d;opacity:0.5;border-radius:3px
+}
+::-webkit-scrollbar-thumb:hover{opacity:1; background:#a36fae
+}
+
+.btn-filter {
+    border: 2px solid #a56fae52;
+    border-radius: 38px;
+    padding: 6px 22px;
+    margin: 15px 6px;
+    color: white;
+}
+.btn-filter:hover {
+    color: #a56fae;
+    border-color: #a56fae;
+}
+.btn-filter.active {
+    background-color: #a56fae;
+    color: white;
+}
